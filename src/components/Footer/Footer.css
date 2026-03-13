@@ -1,0 +1,78 @@
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 3rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-logo span {
+  color: var(--accent);
+}
+
+.footer-logo:hover {
+  color: var(--accent);
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.footer-socials a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.footer-copy {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.heart {
+  color: var(--accent);
+  animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.3); }
+}

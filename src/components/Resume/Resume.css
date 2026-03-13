@@ -1,0 +1,133 @@
+.resume-section {
+  background: var(--bg-secondary);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Left column: dot + line */
+.timeline-dot {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  margin-top: 0.35rem;
+  z-index: 1;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 6.5px;  /* center of 14px dot */
+  top: 18px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-subtle);
+}
+
+/* Card */
+.timeline-content {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.timeline-content:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.exp-role {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.exp-company {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.exp-period {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+  white-space: nowrap;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.exp-bullets li {
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.exp-bullets li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+/* Download CTA */
+.resume-download {
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .exp-header {
+    flex-direction: column;
+  }
+
+  .timeline-item {
+    gap: 1rem;
+  }
+}

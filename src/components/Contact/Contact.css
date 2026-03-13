@@ -1,0 +1,130 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 3rem;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Info column */
+.contact-intro {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contact-link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.contact-link-item:hover {
+  color: var(--accent);
+}
+
+.contact-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 9px;
+  color: var(--accent);
+  background: var(--accent-glow);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.contact-link-item:hover .contact-link-icon {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 9px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+  outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.send-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.85rem;
+  font-size: 1rem;
+}
+
+.send-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

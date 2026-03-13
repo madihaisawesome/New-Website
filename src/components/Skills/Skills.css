@@ -1,0 +1,114 @@
+/* Grouped skill tags */
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.skill-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.skill-group:hover {
+  border-color: var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.skill-group-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 1rem;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.skill-pill {
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.83rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.skill-pill:hover {
+  background: var(--accent-glow);
+  border-color: var(--border);
+  color: var(--accent-light);
+  transform: scale(1.05);
+}
+
+/* Proficiency bars */
+.bars-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.skill-bars {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.bar-item {}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.bar-pct {
+  color: var(--accent);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+}
+
+.bar-track {
+  height: 7px;
+  background: var(--border-subtle);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent), var(--accent-light));
+  animation: barGrow 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes barGrow {
+  to { width: var(--bar-width); }
+}
+
+@media (max-width: 640px) {
+  .skills-groups {
+    grid-template-columns: 1fr;
+  }
+}

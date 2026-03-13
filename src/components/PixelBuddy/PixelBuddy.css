@@ -1,0 +1,59 @@
+.pixel-buddy {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 64px;
+  pointer-events: none;
+  z-index: 2200;
+  will-change: transform;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.30));
+}
+
+.pixel-buddy-sprite {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transform-origin: 72% 58%;
+  animation: buddyBob 0.9s steps(2, end) infinite;
+}
+
+.pixel-buddy.pecking .pixel-buddy-sprite {
+  animation: buddyBob 0.9s steps(2, end) infinite, buddyPeck 0.22s ease-out 1;
+}
+
+@keyframes buddyBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes buddyPeck {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  35% {
+    transform: translateY(2px) rotate(18deg) scale(1.03);
+  }
+  65% {
+    transform: translateY(1px) rotate(12deg) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .pixel-buddy {
+    width: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-buddy {
+    width: 42px;
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" rx="20" fill="#1a1a24"/>
+  <rect x="20" y="20" width="1240" height="680" rx="14" stroke="#ff2d78" stroke-opacity="0.45" stroke-width="3" stroke-dasharray="12 10"/>
+  <rect x="72" y="110" width="420" height="30" rx="6" fill="#2a2a3a"/>
+  <rect x="72" y="166" width="620" height="20" rx="5" fill="#2a2a3a"/>
+  <rect x="72" y="198" width="560" height="20" rx="5" fill="#2a2a3a"/>
+  <rect x="72" y="230" width="430" height="20" rx="5" fill="#2a2a3a"/>
+  <rect x="790" y="150" width="410" height="330" rx="14" fill="#2a2a3a"/>
+  <path d="M848 420l84-86 68 70 118-124 82 140H848z" fill="#ff2d78" fill-opacity="0.35"/>
+  <circle cx="918" cy="236" r="28" fill="#ff2d78" fill-opacity="0.35"/>
+  <text x="50%" y="640" dominant-baseline="middle" text-anchor="middle" fill="#ff6ea0" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Project Screenshot Placeholder</text>
+</svg>
