@@ -3,27 +3,27 @@ import './Skills.css'
 const skillGroups = [
   {
     category: 'Languages',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'C', 'C++', 'SQL', 'HTML', 'CSS'],
+    skills: ['Python', 'C', 'C++', 'Java', 'JavaScript', 'HTML5', 'CSS3', 'SQL'],
   },
   {
-    category: 'Frontend',
-    skills: ['React', 'Vite', 'Tailwind CSS', 'Responsive Design', 'UI/UX Fundamentals'],
+    category: 'Web Tech',
+    skills: ['React.js', 'Next.js', 'Node.js', 'Flask', 'REST APIs', 'Responsive Design'],
   },
   {
-    category: 'Backend',
-    skills: ['Node.js', 'Express', 'REST APIs', 'Authentication', 'Database Design'],
+    category: 'Tools & Environments',
+    skills: ['Git', 'GitHub', 'Visual Studio', 'Linux/Unix Shell', 'Docker', 'Kubernetes'],
   },
   {
-    category: 'Databases',
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
+    category: 'Data & Databases',
+    skills: ['MySQL', 'SQL', 'Database Design', 'Microsoft Office Suite', 'MATLAB'],
   },
   {
-    category: 'DevOps & Tools',
-    skills: ['Git', 'GitHub', 'Docker', 'Kubernetes', 'Postman', 'VS Code'],
+    category: 'Concepts',
+    skills: ['Object-Oriented Programming', 'Data Structures & Algorithms', 'Debugging', 'Performance Optimization'],
   },
   {
-    category: 'Other',
-    skills: ['Game Development', 'Embedded Systems', 'Problem Solving', 'Debugging', 'Agile Collaboration'],
+    category: 'Strengths',
+    skills: ['Workflow Automation', 'Project Ownership', 'Communication', 'Leadership', 'Adaptability'],
   },
 ]
 

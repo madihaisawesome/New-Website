@@ -4,6 +4,17 @@ import './Projects.css'
 
 const projects = [
   {
+    title: 'Ice Cream Website',
+    image: '/placeholders/project-placeholder.svg',
+    description:
+      'Full-stack ice cream ordering app built with React and Flask, featuring signup, login, cart, and order history.',
+    tags: ['React', 'Flask', 'REST API'],
+    github: null,
+    live: null,
+    category: 'Application',
+    featured: true,
+  },
+  {
     title: 'Sands Of The Forgotten: Qarya Al-Mansiyah',
     image: '/projects/sands-of-the-forgotten.png',
     description:
@@ -26,17 +37,6 @@ const projects = [
     featured: true,
   },
   {
-    title: 'Museum Database',
-    image: '/projects/museum-database.png',
-    description:
-      'Database management system designed to organize and query museum collection data efficiently.',
-    tags: ['Database Management System'],
-    github: 'https://github.com/ENSF-300-Fall-2024/museum-project-system_error',
-    live: null,
-    category: 'Database Management System',
-    featured: false,
-  },
-  {
     title: 'Count Down Timer App',
     image: '/projects/countdown-timer-app.jpg',
     description:
@@ -52,17 +52,6 @@ const projects = [
     image: '/projects/disaster-relief-management-system.png',
     description:
       'Application designed to support coordination and information management in disaster response scenarios.',
-    tags: ['Application'],
-    github: null,
-    live: null,
-    category: 'Application',
-    featured: false,
-  },
-  {
-    title: 'LED Intensity Controller',
-    image: '/projects/led-intensity-controller.png',
-    description:
-      'Application project for controlling LED brightness levels using interactive intensity control logic.',
     tags: ['Application'],
     github: null,
     live: null,

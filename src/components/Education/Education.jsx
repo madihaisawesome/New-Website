@@ -12,23 +12,6 @@ const education = [
       'Focused on problem-solving, software design, and practical application development.',
     ],
   },
-  {
-    degree: 'High School Diploma',
-    institution: 'Foundations for the Future Charter Academy',
-    location: 'Calgary, Canada',
-    period: '2018 — 2021',
-    highlights: [
-      'Completed foundational academics with emphasis on STEM subjects.',
-    ],
-  },
-]
-
-const certifications = [
-  {
-    name: 'Gold Medal in Calgary Youth Science Fair',
-    issuer: 'Calgary Youth Science Fair',
-    year: '2019',
-  },
 ]
 
 export default function Education() {
@@ -67,19 +50,7 @@ export default function Education() {
           ))}
         </div>
 
-        {/* Certifications */}
-        <h3 className="cert-heading">Certifications</h3>
-        <div className="cert-grid">
-          {certifications.map(cert => (
-            <div key={cert.name} className="cert-card">
-              <FiAward size={22} className="cert-icon" />
-              <div>
-                <p className="cert-name">{cert.name}</p>
-                <p className="cert-meta">{cert.issuer} · {cert.year}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+
       </div>
     </section>
   )

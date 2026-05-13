@@ -1,65 +1,63 @@
-import { FiDownload, FiCalendar, FiBriefcase } from 'react-icons/fi'
+import {
+  FiDownload,
+  FiMail,
+  FiPhone,
+  FiLinkedin,
+  FiGithub,
+  FiGlobe,
+  FiMapPin,
+  FiCalendar,
+  FiBriefcase,
+  FiUsers,
+} from 'react-icons/fi'
 import './Resume.css'
+
+const contactLinks = [
+  { icon: FiMail, label: 'madiha.khan@ucalgary.ca', href: 'mailto:madiha.khan@ucalgary.ca' },
+  { icon: FiPhone, label: '(825) 431-9445', href: 'tel:+18254319445' },
+  { icon: FiLinkedin, label: 'linkedin.com/in/madiha-khan-19885a219', href: 'https://linkedin.com/in/madiha-khan-19885a219/' },
+  { icon: FiGithub, label: 'github.com/madihaisawesome', href: 'https://github.com/madihaisawesome' },
+  { icon: FiGlobe, label: 'madihasportfolio.vercel.app', href: 'https://madihasportfolio.vercel.app/' },
+]
 
 const experience = [
   {
-    role: 'Software Engineer Intern',
-    company: 'Professional Experience',
-    location: 'Calgary, Canada',
-    period: 'December 2025 — Present',
+    role: 'Software Engineering Internship',
+    organization: 'Chorate AI · Remote',
+    period: 'December 2025 — March 2026',
     bullets: [
-      'Used Docker and Kubernetes to containerize applications.',
-      'Developed RESTful APIs with Node.js and Express.',
-    ],
-  },
-  {
-    role: 'Lead Volunteer (Womens Side)',
-    company: 'Community Leadership',
-    location: 'Calgary, Canada',
-    period: 'March 2024 — Present',
-    bullets: [
-      'Coordinated volunteer activities and managed schedules for a team of 15 volunteers.',
-      'Led initiatives to improve community engagement and support services.',
+      'Assisted in tasks and projects assigned by supervisors at Chorate AI.',
+      'Engineered real-time system monitoring dashboards by integrating OS-level metrics with a web frontend.',
     ],
   },
   {
     role: 'Casual Lunch Supervisor',
-    company: 'School Support',
-    location: 'Calgary, Canada',
+    organization: 'Calgary Board of Education · Calgary, Alberta',
     period: 'May 2023 — August 2025',
     bullets: [
-      'Monitored and ensured the safety of students during lunch periods.',
-      'Fostered a positive and inclusive environment by encouraging respectful interactions among students.',
+      'Monitored safety protocols and managed group dynamics in a fast-paced environment.',
+      'Communicated effectively with team members to ensure smooth daily operations.',
+    ],
+  },
+]
+
+const leadership = [
+  {
+    role: 'Executive',
+    organization: 'Knowledge Bridge Engineering Club',
+    period: 'May 2026 — Present',
+    bullets: [
+      'Sustained educational research between course lectures/lab content and real-world industry needs.',
+      'Helped bridge the gap between student expectations and course learning outcomes.',
     ],
   },
   {
-    role: 'Lead Teacher',
-    company: 'Education',
-    location: 'Calgary, Canada',
-    period: 'May 2023 — July 2023',
+    role: 'VP of External Affairs',
+    organization: 'MISS UCalgary Club',
+    period: 'May 2024 — December 2025',
     bullets: [
-      'Organized lesson plans and adapted content based on student progress for a class of 20.',
-      'Collaborated with parents and peers to align on educational goals and outcomes.',
-    ],
-  },
-  {
-    role: 'YMCA Volunteer',
-    company: 'YMCA',
-    location: 'Calgary, Canada',
-    period: 'March 2023 — June 2023',
-    bullets: [
-      'Assisted in activity planning and supervision for children.',
-      'Supported staff in creating a safe and enjoyable environment for all participants.',
-    ],
-  },
-  {
-    role: 'Volunteer Education Assistant',
-    company: 'Education Support',
-    location: 'Calgary, Canada',
-    period: 'July 2018 — August 2018',
-    bullets: [
-      'Helped design and implement educational activities for children.',
-      'Provided one-on-one support to students needing extra assistance with learning tasks.',
+      'Collaborated with sponsors and cross-functional teams to secure funding and plan events.',
+      'Demonstrated strong remote coordination and communication skills in a hybrid setting.',
     ],
   },
 ]
@@ -68,39 +66,91 @@ export default function Resume() {
   return (
     <section className="section resume-section" id="resume">
       <div className="container">
-        <h2 className="section-title">Work <span>Experience</span></h2>
+        <h2 className="section-title">Resume <span>Snapshot</span></h2>
         <div className="divider" />
-        <p className="section-subtitle">Experience timeline from my existing portfolio</p>
+        <p className="section-subtitle">Work experience and leadership highlights</p>
 
-        <div className="timeline">
-          {experience.map((item, idx) => (
-            <div key={item.role} className="timeline-item">
-              <div className="timeline-dot" />
-              {idx < experience.length - 1 && <div className="timeline-line" />}
-              <div className="timeline-content">
-                <div className="exp-header">
-                  <div>
-                    <h3 className="exp-role">{item.role}</h3>
-                    <p className="exp-company">
-                      <FiBriefcase size={13} /> {item.company} · {item.location}
-                    </p>
-                  </div>
-                  <span className="exp-period">
-                    <FiCalendar size={13} /> {item.period}
-                  </span>
-                </div>
-                <ul className="exp-bullets">
-                  {item.bullets.map(b => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </div>
+        <div className="resume-hero-card">
+          <div className="resume-hero-copy">
+            <p className="resume-kicker">Madiha Khan</p>
+            <h3 className="resume-headline">Software Engineering student at the University of Calgary</h3>
+            <p className="resume-summary">
+              I build web and embedded systems with React, Flask, Java, Python, Docker, and Kubernetes.
+              I enjoy turning ideas into reliable, user-focused software.
+            </p>
+            <div className="resume-location">
+              <FiMapPin size={16} /> Calgary, Canada
             </div>
-          ))}
+          </div>
+
+          <div className="resume-contact-list">
+            {contactLinks.map(item => (
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="resume-contact-item">
+                <span className="resume-contact-icon"><item.icon size={16} /></span>
+                <span>{item.label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="resume-grid">
+          <article className="resume-card resume-card-wide">
+            <div className="resume-card-header">
+              <FiBriefcase size={18} />
+              <h3>Work Experience</h3>
+            </div>
+            <div className="resume-item-list">
+              {experience.map(item => (
+                <div key={item.role} className="resume-item">
+                  <div className="resume-item-top">
+                    <div>
+                      <h4 className="resume-item-title">{item.role}</h4>
+                      <p className="resume-item-org">{item.organization}</p>
+                    </div>
+                    <span className="resume-item-period">
+                      <FiCalendar size={13} /> {item.period}
+                    </span>
+                  </div>
+                  <ul className="resume-item-bullets">
+                    {item.bullets.map(detail => (
+                      <li key={detail}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article className="resume-card resume-card-wide">
+            <div className="resume-card-header">
+              <FiUsers size={18} />
+              <h3>Leadership</h3>
+            </div>
+            <div className="resume-item-list">
+              {leadership.map(item => (
+                <div key={item.role} className="resume-item">
+                  <div className="resume-item-top">
+                    <div>
+                      <h4 className="resume-item-title">{item.role}</h4>
+                      <p className="resume-item-org">{item.organization}</p>
+                    </div>
+                    <span className="resume-item-period">
+                      <FiCalendar size={13} /> {item.period}
+                    </span>
+                  </div>
+                  <ul className="resume-item-bullets">
+                    {item.bullets.map(detail => (
+                      <li key={detail}>{detail}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </article>
         </div>
 
         <div className="resume-download">
-          <a href="https://madihasportfolio.vercel.app/Resume.pdf" target="_blank" rel="noopener noreferrer" className="accent-btn">
+          <a href="/Resume.pdf" target="_blank" rel="noopener noreferrer" className="accent-btn">
             <FiDownload size={17} /> Download Full Resume
           </a>
         </div>

@@ -26,13 +26,13 @@ export default function Hero() {
             <div className="hero-role">
               <TypeAnimation
                 sequence={[
-                  'Software Engineer',
-                  2000,
                   'Software Engineering Student',
                   2000,
-                  'Game Development Enthusiast',
+                  'Full-Stack Developer',
                   2000,
-                  'Problem Solver',
+                  'Embedded Systems Enthusiast',
+                  2000,
+                  'Community Leader',
                   2000,
                 ]}
                 wrapper="span"
@@ -43,7 +43,7 @@ export default function Hero() {
             </div>
 
             <p className="hero-bio">
-              Third-year Software Engineering student at UCalgary, passionate about building elegant solutions to real-world problems.
+              Software Engineering student at the University of Calgary, building web and embedded projects with React, Java, Python, Docker, and Kubernetes.
             </p>
 
             <div className="hero-actions">
