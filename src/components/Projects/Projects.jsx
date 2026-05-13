@@ -20,8 +20,8 @@ const projects = [
     description:
       'Game project focused on immersive world-building and interactive storytelling.',
     tags: ['Game Development'],
-    github: 'https://ro.blox.com/Ebh5?af_dp=roblox%3A%2F%2Fnavigation%2Fgame_details%3FgameId%3D7580102370&af_web_dp=https%3A%2F%2Fwww.roblox.com%2Fgames%2F122046560302014',
-    live: null,
+    github: null,
+    live: 'https://ro.blox.com/Ebh5?af_dp=roblox%3A%2F%2Fnavigation%2Fgame_details%3FgameId%3D7580102370&af_web_dp=https%3A%2F%2Fwww.roblox.com%2Fgames%2F122046560302014',
     category: 'Game',
     featured: false,
   },
@@ -45,17 +45,6 @@ const projects = [
     github: 'https://github.com/users/madihaisawesome/projects/1',
     live: null,
     category: 'Embedded Systems',
-    featured: false,
-  },
-  {
-    title: 'Disaster Relief Management System',
-    image: '/projects/disaster-relief-management-system.png',
-    description:
-      'Application designed to support coordination and information management in disaster response scenarios.',
-    tags: ['Application'],
-    github: null,
-    live: null,
-    category: 'Application',
     featured: false,
   },
 ]
