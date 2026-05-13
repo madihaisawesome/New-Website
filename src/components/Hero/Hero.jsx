@@ -32,7 +32,7 @@ export default function Hero() {
                   2000,
                   'Embedded Systems Enthusiast',
                   2000,
-                  'Community Leader',
+                  'Video Game Developer',
                   2000,
                 ]}
                 wrapper="span"
@@ -43,7 +43,7 @@ export default function Hero() {
             </div>
 
             <p className="hero-bio">
-              Software Engineering student at the University of Calgary, building web and embedded projects with React, Java, Python, Docker, and Kubernetes.
+              Passionate about building creative digital experiences — whether it's full-stack web apps, interactive games, or innovative projects. A developer with a love for bringing ideas into reality.
             </p>
 
             <div className="hero-actions">
