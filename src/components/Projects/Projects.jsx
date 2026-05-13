@@ -72,7 +72,6 @@ export default function Projects() {
       <div className="container">
         <h2 className="section-title">My <span>Projects</span></h2>
         <div className="divider" />
-        <p className="section-subtitle">Projects from my portfolio website</p>
 
         {/* Filter tabs */}
         <div className="project-filters">

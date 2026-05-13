@@ -14,7 +14,7 @@ export default function Hero() {
         <div className="hero-layout">
           <div className="hero-photo-wrap">
             <img
-              src="https://madihasportfolio.vercel.app/assets/profile-pic-CVQwCG2P.png"
+              src="/profile-pic.png"
               alt="Madiha Khan"
               className="hero-photo"
             />
