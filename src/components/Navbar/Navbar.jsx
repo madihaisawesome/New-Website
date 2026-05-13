@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Education', to: 'education' },
   { label: 'Skills', to: 'skills' },
   { label: 'Resume', to: 'resume' },
-  { label: 'Contact', to: 'contact' },
+  // { label: 'Contact', to: 'contact' },
 ]
 
 export default function Navbar() {

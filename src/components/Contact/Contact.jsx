@@ -54,7 +54,7 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <form className="contact-form" onSubmit={handleSubmit} noValidate>
+          {/* <form className="contact-form" onSubmit={handleSubmit} noValidate>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="name">Name</label>
@@ -96,7 +96,7 @@ export default function Contact() {
             <button type="submit" className="accent-btn send-btn" disabled={loading || sent}>
               {sent ? <><FiCheck size={16} /> Sent!</> : loading ? 'Sending…' : <><FiSend size={16} /> Send Message</>}
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </section>

@@ -50,9 +50,9 @@ export default function Hero() {
               <Link to="projects" smooth duration={500} offset={-70}>
                 <button className="accent-btn">View My Work</button>
               </Link>
-              <Link to="contact" smooth duration={500} offset={-70}>
+              {/* <Link to="contact" smooth duration={500} offset={-70}>
                 <button className="outline-btn">Get In Touch</button>
-              </Link>
+              </Link> */}
             </div>
 
             <div className="hero-socials">
