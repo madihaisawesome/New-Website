@@ -5,7 +5,7 @@ import './Projects.css'
 const projects = [
   {
     title: 'Sweet Scoop',
-    image: '/placeholders/project-placeholder.svg',
+    image: '/projects/sweet-scoop-screenshot.png',
     description:
       'Full-stack ice cream ordering app built with React and Flask, featuring signup, login, cart, and order history.',
     tags: ['React', 'Flask', 'REST API'],
@@ -23,7 +23,7 @@ const projects = [
     github: 'https://ro.blox.com/Ebh5?af_dp=roblox%3A%2F%2Fnavigation%2Fgame_details%3FgameId%3D7580102370&af_web_dp=https%3A%2F%2Fwww.roblox.com%2Fgames%2F122046560302014',
     live: null,
     category: 'Game',
-    featured: true,
+    featured: false,
   },
   {
     title: 'Flight Reservation System',
@@ -34,7 +34,7 @@ const projects = [
     github: 'https://github.com/azlfa-anwar/ensf480/tree/main?search=1',
     live: null,
     category: 'Application',
-    featured: true,
+    featured: false,
   },
   {
     title: 'Count Down Timer App',

@@ -1,0 +1,33 @@
+<svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="300" fill="#FFF5E1"/>
+  
+  <!-- Cone -->
+  <path d="M 70 140 L 100 240 L 130 140 Z" fill="#D2691E" stroke="#A0522D" stroke-width="1"/>
+  <line x1="75" y1="160" x2="125" y2="160" stroke="#A0522D" stroke-width="0.5" opacity="0.5"/>
+  <line x1="73" y1="180" x2="127" y2="180" stroke="#A0522D" stroke-width="0.5" opacity="0.5"/>
+  <line x1="71" y1="200" x2="129" y2="200" stroke="#A0522D" stroke-width="0.5" opacity="0.5"/>
+  <line x1="69" y1="220" x2="131" y2="220" stroke="#A0522D" stroke-width="0.5" opacity="0.5"/>
+  
+  <!-- Bottom scoop (vanilla) -->
+  <circle cx="100" cy="145" r="35" fill="#F3E5AB" stroke="#D4AF37" stroke-width="1"/>
+  
+  <!-- Middle scoop (pink/strawberry) -->
+  <circle cx="100" cy="110" r="38" fill="#FFB6C1" stroke="#FF69B4" stroke-width="1"/>
+  
+  <!-- Top scoop (chocolate) -->
+  <circle cx="100" cy="70" r="40" fill="#8B4513" stroke="#654321" stroke-width="1"/>
+  
+  <!-- Cherry on top -->
+  <circle cx="100" cy="25" r="8" fill="#DC143C"/>
+  <path d="M 100 25 Q 95 15 90 10" stroke="#228B22" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Highlight on top scoop -->
+  <ellipse cx="85" cy="55" rx="12" ry="15" fill="#A0522D" opacity="0.3"/>
+  
+  <!-- Highlight on middle scoop -->
+  <ellipse cx="85" cy="100" rx="14" ry="16" fill="#FFD700" opacity="0.2"/>
+  
+  <!-- Highlight on bottom scoop -->
+  <ellipse cx="85" cy="140" rx="12" ry="14" fill="#FFD700" opacity="0.25"/>
+</svg>
