@@ -15,6 +15,17 @@ const projects = [
     featured: true,
   },
   {
+    title: 'Fishtank Timer',
+    image: '/projects/fishtank-timer.png',
+    description:
+      'An interactive fishtank timer application for tracking time with visual appeal.',
+    tags: ['React', 'Web Development'],
+    github: null,
+    live: 'https://fishtank-timer.vercel.app/',
+    category: 'Application',
+    featured: false,
+  },
+  {
     title: 'Sands Of The Forgotten: Qarya Al-Mansiyah',
     image: '/projects/sands-of-the-forgotten.png',
     description:
