@@ -4,13 +4,13 @@ import './Projects.css'
 
 const projects = [
   {
-    title: 'Ice Cream Website',
+    title: 'Sweet Scoop',
     image: '/placeholders/project-placeholder.svg',
     description:
       'Full-stack ice cream ordering app built with React and Flask, featuring signup, login, cart, and order history.',
     tags: ['React', 'Flask', 'REST API'],
     github: null,
-    live: null,
+    live: 'https://sweet-scoop-6mpps17c3-madihaisawesomes-projects.vercel.app/',
     category: 'Application',
     featured: true,
   },
