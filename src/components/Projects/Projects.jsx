@@ -26,6 +26,17 @@ const projects = [
     featured: false,
   },
   {
+    title: 'Machine Learning Project',
+    image: '/projects/machine-learning-project.png',
+    description:
+      'A machine learning project focused on implementing and training neural networks for image classification.',
+    tags: ['Python', 'TensorFlow', 'Scikit-learn'],
+    github: 'https://github.com/madihaisawesome/ENSF-444-Project',
+    live: null,
+    category: 'Application',
+    featured: false,
+  },
+  {
     title: 'Sands Of The Forgotten: Qarya Al-Mansiyah',
     image: '/projects/sands-of-the-forgotten.png',
     description:
