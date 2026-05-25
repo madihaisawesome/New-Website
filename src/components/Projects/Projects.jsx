@@ -19,7 +19,7 @@ const projects = [
     image: '/projects/lastseen-mobile-app.png',
     description:
       '4th place Hackathon Winner: A room-memory app that helps you find misplaced items by combining camera scans, visual event tracking, and natural-language search.',
-    tags: ['React Native', 'Mobile Development', 'Hackathon Winner'],
+    tags: ['React Native', 'Expo', 'FastAPI'],
     github: 'https://github.com/Mudafa/lastseen/tree/main',
     live: 'null',
     category: 'Application',
