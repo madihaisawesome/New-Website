@@ -4,17 +4,6 @@ import './Projects.css'
 
 const projects = [
   {
-    title: 'Sweet Scoop',
-    image: '/projects/sweet-scoop-screenshot.png',
-    description:
-      'Full-stack ice cream ordering app built with React and Flask, featuring signup, login, cart, and order history.',
-    tags: ['React', 'Flask', 'REST API'],
-    github: null,
-    live: 'https://sweet-scoop-6mpps17c3-madihaisawesomes-projects.vercel.app/',
-    category: 'Application',
-    featured: true,
-  },
-  {
     title: 'LastSeen',
     image: '/projects/lastseen-mobile-app.png',
     description:
@@ -22,6 +11,17 @@ const projects = [
     tags: ['React Native', 'Expo', 'FastAPI', 'Mobile App'],
     github: 'https://github.com/Mudafa/lastseen/tree/main',
     live: 'null',
+    category: 'Application',
+    featured: true,
+  },
+  {
+    title: 'Sweet Scoop',
+    image: '/projects/sweet-scoop-screenshot.png',
+    description:
+      'Full-stack ice cream ordering app built with React and Flask, featuring signup, login, cart, and order history.',
+    tags: ['React', 'Flask', 'REST API'],
+    github: null,
+    live: 'https://sweet-scoop-6mpps17c3-madihaisawesomes-projects.vercel.app/',
     category: 'Application',
     featured: true,
   },
