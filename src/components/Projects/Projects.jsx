@@ -11,7 +11,7 @@ const projects = [
     tags: ['React Native', 'Expo', 'FastAPI', 'Mobile App'],
     github: 'https://github.com/Mudafa/lastseen/tree/main',
     live: null,
-    category: 'Application',
+    category: 'Applications',
     featured: true,
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     tags: ['React', 'Flask', 'REST API'],
     github: null,
     live: 'https://sweet-scoop-6mpps17c3-madihaisawesomes-projects.vercel.app/',
-    category: 'Application',
+    category: 'Applications',
     featured: true,
   },
   {
@@ -33,7 +33,7 @@ const projects = [
     tags: ['React', 'Web Development'],
     github: null,
     live: 'https://fishtank-timer.vercel.app/',
-    category: 'Application',
+    category: 'Applications',
     featured: false,
   },
   {
@@ -44,7 +44,7 @@ const projects = [
     tags: ['Python', 'TensorFlow', 'Scikit-learn'],
     github: 'https://github.com/madihaisawesome/ENSF-444-Project',
     live: null,
-    category: 'Application',
+    category: 'Machine Learning',
     featured: false,
   },
   {
@@ -66,7 +66,7 @@ const projects = [
     tags: ['Application'],
     github: 'https://github.com/azlfa-anwar/ensf480/tree/main?search=1',
     live: null,
-    category: 'Application',
+    category: 'Applications',
     featured: false,
   },
   {
@@ -77,7 +77,7 @@ const projects = [
     tags: ['Embedded Systems'],
     github: 'https://github.com/users/madihaisawesome/projects/1',
     live: null,
-    category: 'Embedded Systems',
+    category: 'Applications',
     featured: false,
   },
 ]
