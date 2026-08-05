@@ -42,7 +42,7 @@ const projects = [
     description:
       'A machine learning project focused on implementing and training neural networks for image classification.',
     tags: ['Python', 'TensorFlow', 'Scikit-learn'],
-    github: 'https://github.com/madihaisawesome/ENSF-444-Project',
+    github: 'https://github.com/madihaisawesome/ENSF-444-Project.git',
     live: null,
     category: 'Machine Learning',
     featured: false,
