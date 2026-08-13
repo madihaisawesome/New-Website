@@ -26,6 +26,17 @@ const projects = [
     featured: true,
   },
   {
+    title: 'High-Throughput Ad Click Tracker',
+    image: '/projects/adclicker.png',
+    description:
+      'Backend project for high-volume click event tracking with FastAPI, Redis, and PostgreSQL.',
+    tags: ['FastAPI', 'Redis', 'PostgreSQL'],
+    github: 'https://github.com/madihaisawesome/High-Throughput-Ad-Click-Tracker.git',
+    live: null,
+    category: 'Applications',
+    featured: true,
+  },
+  {
     title: 'Fishtank Timer',
     image: '/projects/fishtank-timer.png',
     description:
