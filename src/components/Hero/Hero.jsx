@@ -6,11 +6,12 @@ import './Hero.css'
 export default function Hero() {
   return (
     <section className="hero" id="hero">
+      {/* Animated blobs */}
+      <div className="hero-blob blob-1" />
+      <div className="hero-blob blob-2" />
+
       <div className="hero-content container">
-        <div className="sticky-note">
-          <span className="sticky-tape" aria-hidden="true" />
-          <div className="sticky-note-label">A LITTLE NOTE ABOUT ME</div>
-          <div className="hero-layout">
+        <div className="hero-layout">
           <div className="hero-photo-wrap">
             <img
               src="/profile-pic.png"
@@ -46,16 +47,11 @@ export default function Hero() {
             </p>
 
             <div className="hero-actions">
-              <a
-                href="/Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="accent-btn"
-              >
-                Resume
-              </a>
+              <Link to="projects" smooth duration={500} offset={-70}>
+                <button className="accent-btn">View My Work</button>
+              </Link>
               <Link to="contact" smooth duration={500} offset={-70}>
-                <button className="outline-btn">Contact</button>
+                <button className="outline-btn">Get In Touch</button>
               </Link>
             </div>
 
@@ -70,7 +66,6 @@ export default function Hero() {
                 <FiMail size={20} />
               </a>
             </div>
-          </div>
           </div>
         </div>
       </div>

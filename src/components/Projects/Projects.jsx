@@ -15,17 +15,6 @@ const projects = [
     featured: true,
   },
   {
-    title: 'Skill Revival',
-    image: '/projects/skill_revival.png',
-    description:
-      'Skill Revival is an AI-assisted skill coach for practical life skills, providing guidance and feedback to help users improve their abilities.',
-    tags: [''],
-    github: 'https://github.com/madihaisawesome/Skill-Revival',
-    live: null,
-    category: 'Applications',
-    featured: true,
-  },
-  {
     title: 'Sweet Scoop',
     image: '/projects/sweet-scoop-screenshot.png',
     description:
