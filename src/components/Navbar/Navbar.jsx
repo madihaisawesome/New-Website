@@ -1,71 +1,39 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-scroll'
+import { useState } from 'react'
+import { FiMoon, FiSun } from 'react-icons/fi'
 import { useTheme } from '../../context/ThemeContext'
-import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi'
 import './Navbar.css'
 
-const navLinks = [
-  { label: 'Home', to: 'hero' },
-  { label: 'Projects', to: 'projects' },
-  { label: 'Education', to: 'education' },
-  { label: 'Skills', to: 'skills' },
-  { label: 'Resume', to: 'resume' },
-  // { label: 'Contact', to: 'contact' },
-]
-
-export default function Navbar() {
+export default function Navbar({ time }) {
   const { isDark, toggleTheme } = useTheme()
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const closeMenu = () => setMenuOpen(false)
+  const jumpTo = id => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setMenuOpen(false)
+  }
+  const formattedTime = time.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="nav-inner">
-        <Link to="hero" smooth duration={500} className="nav-logo" onClick={closeMenu}>
-          &lt;<span>Madiha</span> /&gt;
-        </Link>
-
-        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          {navLinks.map(link => (
-            <li key={link.to}>
-              <Link
-                to={link.to}
-                smooth
-                duration={500}
-                spy
-                activeClass="active"
-                offset={-70}
-                className="nav-link"
-                onClick={closeMenu}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-              {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
-            </button>
-          </li>
-        </ul>
-
-        <div className="nav-actions-mobile">
-          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-            {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
-          </button>
-          <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Menu">
-            {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
-          </button>
-        </div>
+    <header className="mac-menu-bar">
+      <button type="button" className="apple-mark" onClick={() => jumpTo('hero')} aria-label="Go to About Me">●</button>
+      <button type="button" className="menu-name" onClick={() => jumpTo('hero')}>Madiha</button>
+      <button type="button" className="menu-item menu-about" onClick={() => jumpTo('hero')}>About</button>
+      <button type="button" className="menu-item menu-work" onClick={() => jumpTo('projects')}>Work</button>
+      <button type="button" className="menu-item menu-contact" onClick={() => jumpTo('contact')}>Contact</button>
+      <div className="menu-right">
+        <button type="button" className="menu-mode" onClick={toggleTheme} aria-label="Toggle theme">
+          {isDark ? <FiSun size={14} /> : <FiMoon size={14} />}
+        </button>
+        <button type="button" className="menu-clock" onClick={() => setMenuOpen(value => !value)} aria-label="Show desktop menu">
+          {formattedTime}
+        </button>
       </div>
-    </nav>
+      {menuOpen && (
+        <div className="mac-quick-menu">
+          <span>madiha.dev</span>
+          <span>Calgary, AB</span>
+          <span className="menu-status">available for good ideas</span>
+        </div>
+      )}
+    </header>
   )
 }
