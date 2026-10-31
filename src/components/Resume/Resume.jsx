@@ -6,7 +6,7 @@ import {
 } from 'react-icons/fi'
 import './Resume.css'
 
-const experience = [
+export const experience = [
   {
     role: 'Software Engineering Internship',
     organization: 'Chorate AI · Remote',
@@ -27,7 +27,7 @@ const experience = [
   },
 ]
 
-const leadership = [
+export const leadership = [
   {
     role: 'Executive',
     organization: 'Knowledge Bridge Engineering Club',

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
 import './Projects.css'
 
-const projects = [
+export const projects = [
   {
     title: 'LastSeen',
     image: '/projects/lastseen-mobile-app.png',

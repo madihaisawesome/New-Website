@@ -10,10 +10,15 @@ import Footer from './components/Footer/Footer'
 import PixelBuddy from './components/PixelBuddy/PixelBuddy'
 import './App.css'
 
-function App() {
+function App({ onBackToDesktop }) {
   return (
     <ThemeProvider>
       <div className="app">
+        {onBackToDesktop && (
+          <button type="button" className="back-to-desktop" onClick={onBackToDesktop}>
+            Back to desktop
+          </button>
+        )}
         {/* Floating decorative elements - mixed hearts and stars on both sides */}
         <div className="floating-decor floating-heart-sm" style={{ left: '4%', top: '8%', animationDelay: '0s' }} />
         <div className="floating-decor floating-star-lg" style={{ right: '6%', top: '12%', animationDelay: '0.5s' }} />

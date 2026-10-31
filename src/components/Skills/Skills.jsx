@@ -1,6 +1,6 @@
 import './Skills.css'
 
-const skillGroups = [
+export const skillGroups = [
   {
     category: 'Languages',
     skills: ['Python', 'C', 'C++', 'Java', 'JavaScript', 'HTML5', 'CSS3', 'SQL'],

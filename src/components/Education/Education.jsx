@@ -1,7 +1,7 @@
 import { FiCalendar, FiMapPin, FiAward } from 'react-icons/fi'
 import './Education.css'
 
-const education = [
+export const education = [
   {
     degree: 'Bachelor of Software Engineering',
     institution: 'University of Calgary',
