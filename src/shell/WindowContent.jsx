@@ -7,9 +7,10 @@ import { experience, leadership } from '../components/Resume/Resume.jsx'
 
 const categories = ['All', ...new Set(projects.map(project => project.category))]
 
-function HomeDoc() {
+function HomeDoc({ accent = '#c45a8c' }) {
   return (
-    <article className="doc">
+    <article className="doc" style={{ '--paint-accent': accent }}>
+      <span className="paint-doodle">about.bmp</span>
       <img className="about-photo" src="/profile-pic.png" alt="Madiha Khan" />
       <p className="doc-kicker">Hi there, I'm</p>
       <h2 className="doc-name">Madiha Khan</h2>
@@ -202,8 +203,8 @@ const CONTENT = {
   resume: ResumeDoc,
 }
 
-export default function WindowContent({ id }) {
+export default function WindowContent({ id, accent }) {
   const View = CONTENT[id]
   if (!View) return null
-  return <View />
+  return <View accent={accent} />
 }

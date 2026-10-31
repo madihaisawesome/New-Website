@@ -1,41 +1,87 @@
 import { useEffect, useState } from 'react'
 import WindowContent from './WindowContent.jsx'
+import Minesweeper from './Minesweeper.jsx'
 import './Desktop.css'
 
 const ICONS = [
-  { id: 'home', label: 'Home', kind: 'folder' },
+  { id: 'home', label: 'Home', kind: 'computer' },
   { id: 'projects', label: 'Projects', kind: 'folder' },
-  { id: 'education', label: 'Education', kind: 'folder' },
-  { id: 'skills', label: 'Skills', kind: 'folder' },
-  { id: 'resume', label: 'Resume', kind: 'folder' },
-  { id: 'explore', label: 'Explore', kind: 'explore' },
+  { id: 'explore', label: 'Explore', kind: 'internet' },
+  { id: 'mail', label: 'E-mail', kind: 'mail' },
+  { id: 'skills', label: 'Skills', kind: 'control' },
+  { id: 'recycle', label: 'Recycle Bin', kind: 'recycle' },
+  { id: 'floppy', label: '3½ Floppy (A:)', kind: 'floppy' },
+  { id: 'cd', label: 'CD-ROM (D:)', kind: 'cd' },
+  { id: 'education', label: 'Education', kind: 'pictures' },
+  { id: 'mines', label: 'Minesweeper', kind: 'mines' },
+  { id: 'resume', label: 'Resume', kind: 'notepad' },
 ]
 
 const TITLES = {
-  home: 'Home',
+  home: 'untitled - Paint',
   projects: 'Projects',
   education: 'Education',
   skills: 'Skills',
   resume: 'Resume',
+  mines: 'Minesweeper',
 }
 
 const PATHS = {
-  home: 'C:\\Home\\About.txt',
+  home: 'C:\\Paint\\About.bmp',
   projects: 'C:\\Projects',
   education: 'C:\\Education',
   skills: 'C:\\Skills',
   resume: 'C:\\Resume',
 }
 
+const PAINT_COLORS = [
+  '#4a3040', '#8a6a78', '#c45a8c', '#ff6fa8', '#ff9ac4', '#a070c0', '#f7a8d8', '#ffd0e8',
+  '#70c0b0', '#90d0a0', '#d0c070', '#d09060', '#c06060', '#b08090',
+  '#ffffff', '#fff5fb', '#ffb6d0', '#ffd6e8', '#e8c8ff', '#c8d8ff', '#b8f0e8', '#d8f0c0',
+  '#fff0b8', '#ffd0a8', '#ffc0c0', '#e0b0ff', '#b0c8ff', '#f0e0ff',
+]
+
+const PAINT_TOOLS = [
+  'free', 'select', 'eraser', 'fill',
+  'dropper', 'zoom', 'pencil', 'brush',
+  'spray', 'text', 'line', 'curve',
+  'rect', 'poly', 'ellipse', 'round',
+]
+
+const ICON_OFFSET = {
+  computer: 0,
+  folder: 32,
+  internet: 64,
+  mail: 96,
+  control: 128,
+  recycle: 160,
+  floppy: 192,
+  cd: 224,
+  pictures: 256,
+  music: 288,
+  notepad: 320,
+}
+
+const CONTENT_IDS = new Set(['home', 'projects', 'education', 'skills', 'resume', 'mines'])
+
 export default function Desktop({ onExplore, onShutdown }) {
   const [windows, setWindows] = useState([])
   const [startOpen, setStartOpen] = useState(false)
   const [now, setNow] = useState(() => new Date())
+  const [paintTool, setPaintTool] = useState('pencil')
+  const [paintColor, setPaintColor] = useState('#ff6fa8')
+  const [toast, setToast] = useState('')
 
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 1000)
     return () => clearInterval(id)
   }, [])
+
+  useEffect(() => {
+    if (!toast) return undefined
+    const id = setTimeout(() => setToast(''), 1800)
+    return () => clearTimeout(id)
+  }, [toast])
 
   useEffect(() => {
     const onKey = event => {
@@ -66,13 +112,21 @@ export default function Desktop({ onExplore, onShutdown }) {
       onExplore()
       return
     }
+    if (id === 'mail') {
+      window.location.href = 'mailto:m24049502@gmail.com'
+      return
+    }
+    if (!CONTENT_IDS.has(id)) {
+      setToast(id === 'recycle' ? 'Recycle Bin is empty' : 'Drive not ready')
+      return
+    }
     setWindows(list => {
       const existing = list.find(item => item.id === id)
       if (existing) {
         return [...list.filter(item => item.id !== id), existing]
       }
       const step = list.length % 8
-      return [...list, { id, x: 118 + step * 24, y: 12 + step * 22 }]
+      return [...list, { id, x: 180 + step * 24, y: 28 + step * 22 }]
     })
   }
 
@@ -113,6 +167,9 @@ export default function Desktop({ onExplore, onShutdown }) {
         }
       }}
     >
+      <div className="os-grain" aria-hidden="true" />
+      <div className="os-blush" aria-hidden="true" />
+
       <div className="desktop-icons">
         {ICONS.map(icon => (
           <button
@@ -121,43 +178,119 @@ export default function Desktop({ onExplore, onShutdown }) {
             className={`desk-icon ${windows.some(item => item.id === icon.id) ? 'is-open' : ''}`}
             onClick={() => openIcon(icon.id)}
           >
-            {icon.kind === 'explore' ? <ExploreArt /> : <FolderArt />}
+            <IconArt kind={icon.kind} />
             <span>{icon.label}</span>
           </button>
         ))}
       </div>
 
-      <p className="wallpaper-hint">Open a folder, or click Explore for the full site</p>
+      {toast && <div className="os-toast" role="status">{toast}</div>}
 
       {windows.map((win, index) => {
         const active = index === windows.length - 1
+        const isPaint = win.id === 'home'
+        const isMines = win.id === 'mines'
         return (
           <section
             key={win.id}
-            className={`win ${active ? 'is-active' : ''}`}
+            className={`win ${active ? 'is-active' : ''} ${isPaint ? 'paint-win' : ''} ${isMines ? 'mines-win' : ''}`}
             style={{ left: win.x, top: win.y, zIndex: 10 + index }}
             onPointerDown={() => focusWindow(win.id)}
           >
             <header className="win-titlebar" onPointerDown={event => beginDrag(event, win.id)}>
               <span>{TITLES[win.id]}</span>
-              <button type="button" className="win-close" aria-label={`Close ${TITLES[win.id]}`} onClick={() => closeWindow(win.id)}>
-                ×
-              </button>
+              <div className="win-controls">
+                <button type="button" className="win-ctrl" tabIndex={-1} aria-hidden="true">_</button>
+                <button type="button" className="win-ctrl" tabIndex={-1} aria-hidden="true">□</button>
+                <button type="button" className="win-close" aria-label={`Close ${TITLES[win.id]}`} onClick={() => closeWindow(win.id)}>
+                  ×
+                </button>
+              </div>
             </header>
-            <div className="win-address">Address: {PATHS[win.id]}</div>
-            <div className="win-body">
-              <WindowContent id={win.id} />
-            </div>
-            <footer className="win-status"><span>{PATHS[win.id]}</span></footer>
+
+            {isPaint ? (
+              <>
+                <div className="paint-menubar" aria-hidden="true">
+                  <span><u>F</u>ile</span>
+                  <span><u>E</u>dit</span>
+                  <span><u>V</u>iew</span>
+                  <span><u>I</u>mage</span>
+                  <span><u>C</u>olors</span>
+                  <span><u>H</u>elp</span>
+                </div>
+                <div className="paint-workspace">
+                  <div className="paint-toolbox" aria-label="Paint tools">
+                    {PAINT_TOOLS.map(tool => (
+                      <button
+                        key={tool}
+                        type="button"
+                        className={`paint-tool paint-tool-${tool} ${paintTool === tool ? 'is-active' : ''}`}
+                        aria-label={tool}
+                        onClick={() => setPaintTool(tool)}
+                      />
+                    ))}
+                  </div>
+                  <div className="paint-canvas-wrap">
+                    <div className="win-body paint-canvas">
+                      <WindowContent id={win.id} accent={paintColor} />
+                    </div>
+                  </div>
+                </div>
+                <div className="paint-palette">
+                  <div className="paint-swatch-active" style={{ background: paintColor }} />
+                  <div className="paint-swatches">
+                    {PAINT_COLORS.map(color => (
+                      <button
+                        key={color}
+                        type="button"
+                        className={`paint-swatch ${paintColor === color ? 'is-active' : ''}`}
+                        style={{ background: color }}
+                        aria-label={`Color ${color}`}
+                        onClick={() => setPaintColor(color)}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <footer className="win-status paint-status">
+                  <span>For Help, click Help Topics on the Help Menu.</span>
+                  <span>121 x 94</span>
+                </footer>
+              </>
+            ) : isMines ? (
+              <div className="win-body mines-body">
+                <Minesweeper />
+              </div>
+            ) : (
+              <>
+                <div className="win-address">Address: {PATHS[win.id]}</div>
+                <div className="win-body">
+                  <WindowContent id={win.id} />
+                </div>
+                <footer className="win-status"><span>{PATHS[win.id]}</span></footer>
+              </>
+            )}
           </section>
         )
       })}
 
       {startOpen && (
         <div className="start-menu" role="menu">
-          <div className="start-banner">Madiha OS</div>
-          <button type="button" role="menuitem" onClick={() => openIcon('explore')}>Explore</button>
-          <button type="button" role="menuitem" onClick={onShutdown}>Shut Down</button>
+          <div className="start-banner">Madiha OS ♡</div>
+          <button type="button" role="menuitem" onClick={() => openIcon('home')}>
+            Home
+          </button>
+          <button type="button" role="menuitem" onClick={() => openIcon('projects')}>
+            Projects
+          </button>
+          <button type="button" role="menuitem" onClick={() => openIcon('explore')}>
+            Explore
+          </button>
+          <button type="button" role="menuitem" onClick={() => openIcon('mines')}>
+            Minesweeper
+          </button>
+          <button type="button" role="menuitem" onClick={onShutdown}>
+            Shut Down...
+          </button>
         </div>
       )}
 
@@ -171,6 +304,7 @@ export default function Desktop({ onExplore, onShutdown }) {
           <span className="start-flag" aria-hidden="true" />
           Start
         </button>
+
         <div className="task-windows">
           {windows.map((win, index) => (
             <button
@@ -179,29 +313,26 @@ export default function Desktop({ onExplore, onShutdown }) {
               className={index === windows.length - 1 ? 'is-active' : ''}
               onClick={() => focusWindow(win.id)}
             >
-              {TITLES[win.id]}
+              {win.id === 'home' ? 'Paint' : TITLES[win.id]}
             </button>
           ))}
         </div>
+
         <div className="task-clock">{time}</div>
       </footer>
     </div>
   )
 }
 
-function FolderArt() {
+function IconArt({ kind }) {
+  if (kind === 'mines') {
+    return <span className="icon-art icon-mines" aria-hidden="true" />
+  }
   return (
-    <span className="folder-art" aria-hidden="true">
-      <span className="folder-tab" />
-      <span className="folder-body" />
-    </span>
-  )
-}
-
-function ExploreArt() {
-  return (
-    <span className="explore-art" aria-hidden="true">
-      <span>www</span>
-    </span>
+    <span
+      className={`icon-art icon-${kind}`}
+      style={{ backgroundPosition: `-${ICON_OFFSET[kind] || 0}px 0` }}
+      aria-hidden="true"
+    />
   )
 }

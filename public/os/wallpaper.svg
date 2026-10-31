@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" shape-rendering="crispEdges">
+  <defs>
+    <pattern id="d1" width="2" height="2" patternUnits="userSpaceOnUse">
+      <rect width="1" height="1" fill="#3f8fdc"/>
+      <rect x="1" y="1" width="1" height="1" fill="#3f8fdc"/>
+      <rect x="1" width="1" height="1" fill="#2f7fd0"/>
+      <rect y="1" width="1" height="1" fill="#2f7fd0"/>
+    </pattern>
+    <pattern id="d2" width="2" height="2" patternUnits="userSpaceOnUse">
+      <rect width="1" height="1" fill="#69b4f0"/>
+      <rect x="1" y="1" width="1" height="1" fill="#69b4f0"/>
+      <rect x="1" width="1" height="1" fill="#57a8ea"/>
+      <rect y="1" width="1" height="1" fill="#57a8ea"/>
+    </pattern>
+    <pattern id="cloud" width="2" height="2" patternUnits="userSpaceOnUse">
+      <rect width="1" height="1" fill="#ffffff"/>
+      <rect x="1" y="1" width="1" height="1" fill="#ffffff"/>
+      <rect x="1" width="1" height="1" fill="#e8f3ff"/>
+      <rect y="1" width="1" height="1" fill="#e8f3ff"/>
+    </pattern>
+    <pattern id="g1" width="2" height="2" patternUnits="userSpaceOnUse">
+      <rect width="1" height="1" fill="#4caf50"/>
+      <rect x="1" y="1" width="1" height="1" fill="#4caf50"/>
+      <rect x="1" width="1" height="1" fill="#3d9841"/>
+      <rect y="1" width="1" height="1" fill="#3d9841"/>
+    </pattern>
+    <pattern id="g2" width="2" height="2" patternUnits="userSpaceOnUse">
+      <rect width="1" height="1" fill="#6bcf6f"/>
+      <rect x="1" y="1" width="1" height="1" fill="#6bcf6f"/>
+      <rect x="1" width="1" height="1" fill="#4caf50"/>
+      <rect y="1" width="1" height="1" fill="#4caf50"/>
+    </pattern>
+    <pattern id="g3" width="2" height="2" patternUnits="userSpaceOnUse">
+      <rect width="1" height="1" fill="#2f7a33"/>
+      <rect x="1" y="1" width="1" height="1" fill="#2f7a33"/>
+      <rect x="1" width="1" height="1" fill="#256629"/>
+      <rect y="1" width="1" height="1" fill="#256629"/>
+    </pattern>
+  </defs>
+
+  <!-- sky -->
+  <rect width="640" height="220" fill="#4ea3ea"/>
+  <rect y="70" width="640" height="70" fill="url(#d1)"/>
+  <rect y="140" width="640" height="60" fill="url(#d2)"/>
+  <rect y="190" width="640" height="40" fill="#8ecaf5"/>
+
+  <!-- clouds -->
+  <g fill="url(#cloud)">
+    <rect x="40" y="40" width="70" height="14"/>
+    <rect x="28" y="54" width="96" height="18"/>
+    <rect x="48" y="72" width="64" height="12"/>
+
+    <rect x="220" y="24" width="90" height="14"/>
+    <rect x="200" y="38" width="130" height="22"/>
+    <rect x="230" y="60" width="80" height="12"/>
+
+    <rect x="430" y="50" width="76" height="14"/>
+    <rect x="414" y="64" width="110" height="18"/>
+    <rect x="440" y="82" width="70" height="12"/>
+
+    <rect x="540" y="28" width="50" height="10"/>
+    <rect x="528" y="38" width="72" height="14"/>
+  </g>
+  <g fill="#ffffff">
+    <rect x="56" y="46" width="28" height="6"/>
+    <rect x="250" y="32" width="36" height="6"/>
+    <rect x="450" y="56" width="28" height="6"/>
+  </g>
+
+  <!-- hills -->
+  <rect y="210" width="640" height="190" fill="#3d9841"/>
+  <path d="M0 220 L80 200 L160 214 L260 188 L360 210 L460 180 L560 204 L640 190 L640 260 L0 260 Z" fill="url(#g3)"/>
+  <path d="M0 240 C90 210 180 214 280 236 C380 258 480 214 640 230 L640 320 L0 320 Z" fill="url(#g1)"/>
+  <path d="M0 290 C120 262 240 274 360 296 C480 318 560 278 640 290 L640 400 L0 400 Z" fill="url(#g2)"/>
+  <path d="M0 340 C140 322 280 334 420 350 C520 360 590 342 640 348 L640 400 L0 400 Z" fill="url(#g3)"/>
+
+  <g fill="#246028">
+    <rect x="60" y="250" width="3" height="3"/>
+    <rect x="140" y="270" width="3" height="3"/>
+    <rect x="240" y="258" width="3" height="3"/>
+    <rect x="340" y="286" width="3" height="3"/>
+    <rect x="460" y="266" width="3" height="3"/>
+    <rect x="560" y="292" width="3" height="3"/>
+    <rect x="100" y="320" width="3" height="3"/>
+    <rect x="300" y="334" width="3" height="3"/>
+    <rect x="500" y="346" width="3" height="3"/>
+  </g>
+</svg>
