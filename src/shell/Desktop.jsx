@@ -4,34 +4,44 @@ import Minesweeper from './Minesweeper.jsx'
 import './Desktop.css'
 
 const ICONS = [
-  { id: 'home', label: 'Home', kind: 'computer' },
-  { id: 'projects', label: 'Projects', kind: 'folder' },
-  { id: 'explore', label: 'Explore', kind: 'internet' },
+  { id: 'home', label: 'Home', kind: 'paint' },
+  { id: 'projects', label: 'Projects', kind: 'vscode' },
+  { id: 'explore', label: 'Explore', kind: 'explorer' },
   { id: 'mail', label: 'E-mail', kind: 'mail' },
   { id: 'skills', label: 'Skills', kind: 'control' },
   { id: 'recycle', label: 'Recycle Bin', kind: 'recycle' },
   { id: 'floppy', label: '3½ Floppy (A:)', kind: 'floppy' },
   { id: 'cd', label: 'CD-ROM (D:)', kind: 'cd' },
-  { id: 'education', label: 'Education', kind: 'pictures' },
+  { id: 'education', label: 'Education', kind: 'camera' },
   { id: 'mines', label: 'Minesweeper', kind: 'mines' },
-  { id: 'resume', label: 'Resume', kind: 'notepad' },
+  { id: 'resume', label: 'Resume', kind: 'word' },
 ]
 
 const TITLES = {
   home: 'untitled - Paint',
-  projects: 'Projects',
-  education: 'Education',
-  skills: 'Skills',
-  resume: 'Resume',
+  projects: 'Projects — madiha',
+  education: 'diploma.bmp - Windows Picture Viewer',
+  skills: 'Control Panel',
+  resume: 'Resume.doc - Microsoft Word',
   mines: 'Minesweeper',
+  recycle: 'Recycle Bin',
+  floppy: '3½ Floppy (A:)',
+  cd: 'CD-ROM (D:)',
 }
+
+const VSCODE_MENUS = ['File', 'Edit', 'Selection', 'View', 'Go', 'Run', 'Terminal', 'Help']
+const WORD_MENUS = ['File', 'Edit', 'View', 'Insert', 'Format', 'Tools', 'Table', 'Window', 'Help']
+const CONTROL_MENUS = ['File', 'Edit', 'View', 'Help']
 
 const PATHS = {
   home: 'C:\\Paint\\About.bmp',
   projects: 'C:\\Projects',
-  education: 'C:\\Education',
-  skills: 'C:\\Skills',
-  resume: 'C:\\Resume',
+  education: 'C:\\My Pictures\\diploma.bmp',
+  skills: 'Control Panel',
+  resume: 'C:\\Documents\\Resume.doc',
+  recycle: 'C:\\Recycle Bin',
+  floppy: 'A:\\',
+  cd: 'D:\\',
 }
 
 const PAINT_COLORS = [
@@ -60,9 +70,15 @@ const ICON_OFFSET = {
   pictures: 256,
   music: 288,
   notepad: 320,
+  vscode: 352,
+  paint: 384,
+  explorer: 416,
+  word: 448,
+  diploma: 480,
+  camera: 512,
 }
 
-const CONTENT_IDS = new Set(['home', 'projects', 'education', 'skills', 'resume', 'mines'])
+const CONTENT_IDS = new Set(['home', 'projects', 'education', 'skills', 'resume', 'mines', 'recycle', 'floppy', 'cd'])
 
 export default function Desktop({ onExplore, onShutdown }) {
   const [windows, setWindows] = useState([])
@@ -117,7 +133,7 @@ export default function Desktop({ onExplore, onShutdown }) {
       return
     }
     if (!CONTENT_IDS.has(id)) {
-      setToast(id === 'recycle' ? 'Recycle Bin is empty' : 'Drive not ready')
+      setToast('Item not available')
       return
     }
     setWindows(list => {
@@ -190,15 +206,24 @@ export default function Desktop({ onExplore, onShutdown }) {
         const active = index === windows.length - 1
         const isPaint = win.id === 'home'
         const isMines = win.id === 'mines'
+        const isVscode = win.id === 'projects'
+        const isControl = win.id === 'skills'
+        const isWord = win.id === 'resume'
+        const isDiploma = win.id === 'education'
         return (
           <section
             key={win.id}
-            className={`win ${active ? 'is-active' : ''} ${isPaint ? 'paint-win' : ''} ${isMines ? 'mines-win' : ''}`}
+            className={`win ${active ? 'is-active' : ''} ${isPaint ? 'paint-win' : ''} ${isMines ? 'mines-win' : ''} ${isVscode ? 'vscode-win' : ''} ${isControl ? 'control-win' : ''} ${isWord ? 'word-win' : ''} ${isDiploma ? 'diploma-win' : ''}`}
             style={{ left: win.x, top: win.y, zIndex: 10 + index }}
             onPointerDown={() => focusWindow(win.id)}
           >
             <header className="win-titlebar" onPointerDown={event => beginDrag(event, win.id)}>
-              <span>{TITLES[win.id]}</span>
+              <span className={isVscode ? 'vscode-title' : isWord ? 'word-title' : isDiploma ? 'diploma-title' : undefined}>
+                {isVscode && <span className="vscode-logo" aria-hidden="true" />}
+                {isWord && <span className="word-logo" aria-hidden="true">W</span>}
+                {isDiploma && <span className="diploma-logo" aria-hidden="true" />}
+                {TITLES[win.id]}
+              </span>
               <div className="win-controls">
                 <button type="button" className="win-ctrl" tabIndex={-1} aria-hidden="true">_</button>
                 <button type="button" className="win-ctrl" tabIndex={-1} aria-hidden="true">□</button>
@@ -260,6 +285,88 @@ export default function Desktop({ onExplore, onShutdown }) {
               <div className="win-body mines-body">
                 <Minesweeper />
               </div>
+            ) : isVscode ? (
+              <>
+                <div className="vscode-menubar" aria-hidden="true">
+                  {VSCODE_MENUS.map(item => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+                <div className="win-body vscode-body">
+                  <WindowContent id={win.id} />
+                </div>
+              </>
+            ) : isDiploma ? (
+              <>
+                <div className="diploma-toolbar" aria-hidden="true">
+                  <span className="diploma-tool">Previous</span>
+                  <span className="diploma-tool">Next</span>
+                  <span className="diploma-tool is-sep" />
+                  <span className="diploma-tool">Zoom In</span>
+                  <span className="diploma-tool">Zoom Out</span>
+                  <span className="diploma-tool is-sep" />
+                  <span className="diploma-tool">Best Fit</span>
+                </div>
+                <div className="win-body diploma-body">
+                  <WindowContent id={win.id} />
+                </div>
+                <footer className="win-status"><span>{PATHS.education}</span></footer>
+              </>
+            ) : isControl ? (
+              <>
+                <div className="control-menubar" aria-hidden="true">
+                  {CONTROL_MENUS.map(item => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+                <div className="win-address">Address: {PATHS.skills}</div>
+                <div className="win-body control-body">
+                  <WindowContent id={win.id} />
+                </div>
+                <footer className="win-status"><span>6 object(s)</span></footer>
+              </>
+            ) : isWord ? (
+              <>
+                <div className="word-menubar" aria-hidden="true">
+                  {WORD_MENUS.map(item => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+                <div className="word-toolbar" aria-hidden="true">
+                  <span className="word-tool">New</span>
+                  <span className="word-tool">Open</span>
+                  <span className="word-tool">Save</span>
+                  <span className="word-tool">Print</span>
+                  <span className="word-tool is-sep" />
+                  <span className="word-font">Times New Roman ▾</span>
+                  <span className="word-font word-size">12 ▾</span>
+                  <span className="word-tool is-sep" />
+                  <span className="word-tool is-bold">B</span>
+                  <span className="word-tool is-italic">I</span>
+                  <span className="word-tool is-underline">U</span>
+                  <span className="word-tool is-sep" />
+                  <span className="word-tool">≡</span>
+                  <span className="word-tool">≣</span>
+                </div>
+                <div className="word-ruler" aria-hidden="true">
+                  <span className="word-ruler-mark" style={{ left: '8%' }} />
+                  <span className="word-ruler-mark" style={{ left: '25%' }} />
+                  <span className="word-ruler-mark" style={{ left: '50%' }} />
+                  <span className="word-ruler-mark" style={{ left: '75%' }} />
+                  <span className="word-ruler-mark" style={{ left: '92%' }} />
+                </div>
+                <div className="win-body word-body">
+                  <WindowContent id={win.id} />
+                </div>
+                <footer className="win-status word-status">
+                  <span>Page 1</span>
+                  <span>Sec 1</span>
+                  <span>1/1</span>
+                  <span>At 1"</span>
+                  <span>Ln 1</span>
+                  <span>Col 1</span>
+                </footer>
+              </>
             ) : (
               <>
                 <div className="win-address">Address: {PATHS[win.id]}</div>
@@ -313,7 +420,7 @@ export default function Desktop({ onExplore, onShutdown }) {
               className={index === windows.length - 1 ? 'is-active' : ''}
               onClick={() => focusWindow(win.id)}
             >
-              {win.id === 'home' ? 'Paint' : TITLES[win.id]}
+              {win.id === 'home' ? 'Paint' : win.id === 'skills' ? 'Control Panel' : win.id === 'resume' ? 'Word' : win.id === 'education' ? 'diploma.bmp' : TITLES[win.id]}
             </button>
           ))}
         </div>
